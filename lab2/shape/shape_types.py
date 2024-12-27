@@ -1,21 +1,21 @@
-from shape import Shape
+from .shape_base import Shape
 
 class Point(Shape):
-    """Клас для об'єкта точка."""
+    """Point shape."""
     def draw(self, canvas):
         canvas.create_oval(self.x1-2, self.y1-2, self.x1+2, self.y1+2, fill="black")
 
 class Line(Shape):
-    """Клас для об'єкта лінія."""
+    """Line shape."""
     def draw(self, canvas):
         canvas.create_line(self.x1, self.y1, self.x2, self.y2, fill="black")
 
 class Rect(Shape):
-    """Клас для об'єкта прямокутник."""
+    """Rectangle shape."""
     def draw(self, canvas):
         canvas.create_rectangle(self.x1, self.y1, self.x2, self.y2, outline="black")
 
 class Ellipse(Shape):
-    """Клас для об'єкта еліпс."""
+    """Ellipse shape."""
     def draw(self, canvas):
         canvas.create_oval(self.x1, self.y1, self.x2, self.y2, outline="black")
