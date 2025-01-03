@@ -24,11 +24,17 @@ class Segment(Shape):
     """Segment shape, inherited from Line and uses Ellipse for both endpoints."""
     def draw(self, canvas):
         radius = 5  # Радіус кола
+
+        # Малюємо коло на початковій точці лінії
         canvas.create_oval(self.x1 - radius, self.y1 - radius, self.x1 + radius, self.y1 + radius, outline="black", fill="black")
+
+        # Малюємо лінію
         Line(self.x1, self.y1, self.x2, self.y2).draw(canvas)
+
+        # Малюємо коло на кінцевій точці лінії
         canvas.create_oval(self.x2 - radius, self.y2 - radius, self.x2 + radius, self.y2 + radius, outline="black", fill="black")
 
-class Cube(Rect):  # Наслідуємо від Rect, щоб отримати властивості прямокутника
+class Cube(Rect):
     """Cube shape, inheriting from Rect and using Line for edges."""
     def __init__(self, x1, y1, x2, y2):
         super().__init__(x1, y1, x2, y2)

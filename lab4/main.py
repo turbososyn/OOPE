@@ -109,7 +109,7 @@ class ShapeEditorApp:
     def new_file(self):
         """Очищення полотна для створення нового файлу."""
         self.canvas.delete("all")
-        self.editor.reset()
+        self.editor.shapes = []
 
     def show_about(self):
         """Відображення інформації про програму."""
