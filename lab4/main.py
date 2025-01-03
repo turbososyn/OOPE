@@ -56,7 +56,7 @@ class ShapeEditorApp:
 
         self.update_window_title()
         self.canvas.bind("<ButtonPress-1>", self.editor.on_left_button_down)
-        self.canvas.bind("<B1-Motion>", self.editor.on_mouse_move)
+        self.canvas.bind("<B1-Motion>", self.editor.on_mouse_move)  # Ось цей рядок важливий
         self.canvas.bind("<ButtonRelease-1>", self.editor.on_left_button_up)
 
     def add_toolbar_button(self, icon_draw_func, mode, tooltip):
@@ -109,7 +109,7 @@ class ShapeEditorApp:
     def new_file(self):
         """Очищення полотна для створення нового файлу."""
         self.canvas.delete("all")
-        self.editor.shapes = []
+        self.editor.reset()
 
     def show_about(self):
         """Відображення інформації про програму."""
