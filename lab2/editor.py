@@ -27,16 +27,30 @@ class Editor:
         self.draw_all_shapes()
 
     def draw_temp(self):
+        """Draw temporary shape with dashed outline."""
         if self.mode == "Point":
-            self.canvas.create_oval(self.x1-2, self.y1-2, self.x2+2, self.y2+2, fill="black", tags="temp")
+            self.canvas.create_oval(
+                self.x1 - 2, self.y1 - 2, self.x2 + 2, self.y2 + 2,
+                fill="black", tags="temp"
+            )
         elif self.mode == "Line":
-            self.canvas.create_line(self.x1, self.y1, self.x2, self.y2, fill="black", tags="temp")
+            self.canvas.create_line(
+                self.x1, self.y1, self.x2, self.y2,
+                fill="black", dash=(4, 2), tags="temp"
+            )
         elif self.mode == "Rect":
-            self.canvas.create_rectangle(self.x1, self.y1, self.x2, self.y2, outline="black", tags="temp")
+            self.canvas.create_rectangle(
+                self.x1, self.y1, self.x2, self.y2,
+                outline="black", dash=(4, 2), tags="temp"
+            )
         elif self.mode == "Ellipse":
-            self.canvas.create_oval(self.x1, self.y1, self.x2, self.y2, outline="black", tags="temp")
+            self.canvas.create_oval(
+                self.x1, self.y1, self.x2, self.y2,
+                outline="black", dash=(4, 2), tags="temp"
+            )
 
     def add_shape(self):
+        """Add the final shape to the shapes list."""
         if self.mode == "Point":
             shape = Point(self.x1, self.y1, self.x2, self.y2)
         elif self.mode == "Line":
@@ -48,5 +62,6 @@ class Editor:
         self.shapes.append(shape)
 
     def draw_all_shapes(self):
+        """Redraw all the shapes on the canvas."""
         for shape in self.shapes:
             shape.draw(self.canvas)
